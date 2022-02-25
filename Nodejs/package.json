@@ -1,0 +1,19 @@
+{
+    "dependencies": {
+        "body-parser": "^1.19.2",
+        "express": "^4.17.3",
+        "express-validator": "^6.14.0",
+        "mssql": "^8.0.2"
+    },
+    "scripts": {
+        "start": "nodemon server",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "name": "nodejs",
+    "version": "1.0.0",
+    "main": "app.js",
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "description": ""
+}

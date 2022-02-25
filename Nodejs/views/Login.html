@@ -1,0 +1,36 @@
+<html>
+
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="../CSS/Main.css">
+    <link rel="stylesheet" href="../CSS/login.css">
+    <script src="../Scripts/Login.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div id="title">
+            <i class="material-icons lock">lock</i> Login
+        </div>
+
+        <form id="login">
+            <div class="input">
+                <input id="username" placeholder="Username" type="text" required class="validate" autocomplete="off">
+            </div>
+
+            <div class="clearfix"></div>
+
+            <div class="input">
+                <input id="password" placeholder="Password" type="password" required class="validate" autocomplete="off">
+            </div>
+
+            <input type="submit" class=".btn" value="Login">
+        </form>
+        <span id="loginerror"> Username and Password are not right  </span>
+
+    </div>
+
+</body>
+
+</html>
