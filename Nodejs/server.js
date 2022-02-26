@@ -2,8 +2,9 @@ const sql = require('mssql');
 const path = require('path');
 const express = require("express");
 const bodyParser = require("body-parser");
-const { request, response } = require('express');
+const session = require('express-session');
 
+var flash = require('connect-flash');
 const config = require("./dbConfig");
 const UsersRoute = require("./Routers/UsersRoute");
 const StudentsRouter = require("./Routers/StudentsRouter");
@@ -11,21 +12,29 @@ const StudentsRouter = require("./Routers/StudentsRouter");
 //opeining server
 const app = express();
 
+app.use(flash());
 // for body parser. to collect data that sent from the client.
+app.use(bodyParser.json());
 app.use(express.urlencoded({ extended: false }));
 
 //Static Files
-app.use(express.static('public'));
-app.use('/CSS', express.static(__dirname + 'public/CSS'));
+// Serve static files. CSS, Images, JS files ... etc
+app.use(express.static(path.join(__dirname, 'public')));
 
 //Set Views 
 app.set('views', './views')
 app.set('view engine', 'ejs')
 
 
-app.use(bodyParser.json());
-
-const router = express.Router();
+// session
+app.use(session({
+    secret: 'youtube_video',
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+        maxAge: 60 * 1000 * 30
+    }
+}));
 
 //1- openinign DB Connection
 sql.on('error', err => { console.log(err.messages) })
@@ -56,15 +65,26 @@ app.use((request, response, next) => {
 });
 
 app.use('/user', UsersRoute);
-app.get('/user', (req, res) => {
+app.get('/', (req, res) => {
     res.render('login')
-    UsersRoute
 });
 app.use('/Home', (req, res) => {
-    res.render('Home')
+    let user = req.session.user;
+    if (user)
+        res.render('Home')
+    console.log(JSON.stringify(user))
 });
-app.use('/allstudent', StudentsRouter);
 
+// Get loggout page
+app.get('/loggout', (req, res, next) => {
+    // Check if the session is exist
+    if (req.session.user) {
+        // destroy the session and redirect the user to the index page.
+        req.session.destroy(function() {
+            res.redirect('/');
+        });
+    }
+});
 
 
 // server.use('/alluser', (req, res) => {

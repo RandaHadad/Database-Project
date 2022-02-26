@@ -48,22 +48,21 @@ exports.login = async(request, response, next) => {
         if (x) {
             if (x.user_password == password) {
                 console.log('you are loged in finally');
-                response.render('Home', {
-                    JSON: x
-                })
+                request.session.user = x;
+                response.redirect('/Home');
             } else {
                 console.log("wrong password")
-                response.render('Login', {
-                    massage: 'Wrong Password'
-                })
+                request.flash("msg", "Wrong Password");
+                response.locals.messages = request.flash();
+                response.render('Login')
             }
 
 
         } else {
             console.log("wrong username");
-            response.render('Login', {
-                massage: 'Wrong Username'
-            })
+            request.flash("msg", 'Wrong Username');
+            response.locals.messages = request.flash();
+            response.render('Login')
         }
 
 

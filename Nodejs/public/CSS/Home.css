@@ -11,6 +11,14 @@
     margin-bottom: 20px;
 }
 
+i {
+    color: white;
+}
+
+i:hover {
+    color: tomato;
+}
+
 .data,
 .profile {
     background-color: var(--white);

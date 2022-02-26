@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="../CSS/Main.css">
     <link rel="stylesheet" href="../CSS/login.css">
-    <!-- <script src="../Scripts/Login.js"></script> -->
+
 </head>
 
 <body>
@@ -28,6 +28,12 @@
             <input type="submit" class=".btn" value="Login">
         </form>
 
+        <% if (locals.messages) { %>
+
+            <div class="alert alert-danger" style="color: tomato; padding: 10px ; font: 20px bold;">
+                <%= messages.msg %>;
+            </div>
+            <% } %>
     </div>
 
 </body>
