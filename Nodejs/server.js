@@ -11,10 +11,16 @@ const StudentsRouter = require("./Routers/StudentsRouter");
 //opeining server
 const app = express();
 
+// for body parser. to collect data that sent from the client.
+app.use(express.urlencoded({ extended: false }));
+
+//Static Files
 app.use(express.static('public'));
 app.use('/CSS', express.static(__dirname + 'public/CSS'));
-app.use('/Scripts', express.static(__dirname + 'public/Scripts'));
 
+//Set Views 
+app.set('views', './views')
+app.set('view engine', 'ejs')
 
 
 app.use(bodyParser.json());
@@ -43,18 +49,20 @@ sql.connect(config)
 
 //=================================================================
 //firstMW--> save log file
-app.get('/', (req, res) => {
-    res.sendFile(__dirname + '/views/Login.html')
-});
-
 app.use((request, response, next) => {
     console.log(request.url, request.method);
-
     next();
     console.log("==========next======");
 });
 
 app.use('/user', UsersRoute);
+app.get('/user', (req, res) => {
+    res.render('login')
+    UsersRoute
+});
+app.use('/Home', (req, res) => {
+    res.render('Home')
+});
 app.use('/allstudent', StudentsRouter);
 
 
