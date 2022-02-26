@@ -42,18 +42,20 @@ exports.login = async(request, response, next) => {
         next(error);
     } else {
         const { username, password } = request.body;
-        let x = allStudent.find((obj) => obj.user_name == username)
+        //let x = allStudent.find((obj) => obj.user_name == username)
         for (let index = 0; index < allStudent.length; index++) {
             if (allStudent[index].user_name == username && allStudent[index].user_password == password) {
                 console.log('you are loged in finally');
+                response.render('home')
                 response.status(201).json({ message: "Logged" });
-                return;
+                break;
             } else {
-                console.log("you entered some thing wrong ")
+                console.log("you entered some thing wrong ");
             }
 
         }
-        console.log(x);
+        //console.log(x);
+
     }
 
 
