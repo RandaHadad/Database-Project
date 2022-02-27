@@ -51,8 +51,9 @@
                                 <%= course[i]. course_name %>
                             </td>
                             <td>
-                                <form method="post" action="/Home">
-                                    <input type="hidden" name="id" value="<%= course[i]. course_name %>">
+                                <form method="post" action="/home">
+                                    <input type="hidden" name="id" value="<%= course[i]. course_id%>">
+                                    <input type="hidden" name="name" value="<%= course[i]. course_name %>">
                                     <input type="submit" class=".btn" value="start exam">
                                 </form>
                             </td>

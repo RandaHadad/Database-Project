@@ -6,6 +6,10 @@
     border-radius: 5px;
 }
 
+i {
+    color: white;
+}
+
 .info {
     margin-bottom: 30px;
     padding-top: 30px;

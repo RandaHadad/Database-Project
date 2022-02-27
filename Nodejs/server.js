@@ -8,7 +8,7 @@ var flash = require('connect-flash');
 const config = require("./dbConfig");
 const UsersRoute = require("./Routers/UsersRoute");
 const HomeRoute = require("./Routers/HomeRouter");
-const StudentsRouter = require("./Routers/StudentsRouter");
+const FinalRouter = require("./Routers/FinalRouter");
 
 //opeining server
 const app = express();
@@ -66,10 +66,15 @@ app.use((request, response, next) => {
 });
 
 app.use('/user', UsersRoute);
+app.use('/final', FinalRouter);
+app.use('/home', HomeRoute);
 app.get('/', (req, res) => {
     res.render('login')
 });
-app.use('/Home', HomeRoute)
+
+app.get('/exam', (req, res) => {
+    res.render('Exam')
+});
 
 // Get loggout page
 app.get('/loggout', (req, res, next) => {
@@ -81,68 +86,3 @@ app.get('/loggout', (req, res, next) => {
         });
     }
 });
-
-
-// server.use('/alluser', (req, res) => {
-
-//     sql.connect(config, function(err) {
-//         if (err) console.log(err);
-//         // create Request object  
-//         var request = new sql.Request();
-//         // query to the database and execute procedure   
-//         let query = "exec AllUsers ;";
-//         console.log(query)
-//         request.query(query, function(error, recordset) {
-//             if (error) {
-//                 console.log(error);
-//                 sql.close();
-//             }
-//             res.send();
-//             sql.close();
-//         });
-//     });
-// }); //end of server use 
-
-// server.use('/alldepartment', (req, res) => {
-
-//     sql.connect(config, function(err) {
-//         if (err) console.log(err);
-//         // create Request object  
-//         var request = new sql.Request();
-//         // query to the database and execute procedure   
-//         let query = "exec AllDepartments  ;";
-//         console.log(query)
-//         request.query(query, function(error, recordset) {
-//             if (error) {
-//                 console.log(error);
-//                 sql.close();
-//             }
-//             res.send();
-//             sql.close();
-
-
-//         });
-//     });
-// }); //end of server use 
-
-// server.use('/allinstructor', (req, res) => {
-
-//     sql.connect(config, function(err) {
-//         if (err) console.log(err);
-//         // create Request object  
-//         var request = new sql.Request();
-//         // query to the database and execute procedure   
-//         let query = "exec AllInstructor  ;";
-//         console.log(query)
-//         request.query(query, function(error, recordset) {
-//             if (error) {
-//                 console.log(error);
-//                 sql.close();
-//             }
-//             sql.close();
-//             res.send(recordset);
-
-
-//         });
-//     });
-// }); //end of server use

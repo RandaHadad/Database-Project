@@ -26,16 +26,53 @@ exports.stdHome = function(req, res) {
 }
 
 exports.examinfo = function(req, res) {
-    console.log(req.body.id);
-    console.log(JSON.stringify(info[0]))
-    generteExam.generateexam(req.body.id, function(record) {
+    generteExam.generateexam(req.body.name, function(record) {
         console.log(JSON.stringify(record))
+        let intque
+        let i = 0;
+        let j = 1
+        let exam = [];
+        let choices = [];
+        let start = true;
+
+        while (j < record.length) {
+            intque = record[i].que_body;
+            let nxtque = record[j].que_body;
+            if (start) {
+                choices.push({
+                    choiceChar: record[i].choice_char,
+                    choiceDescription: record[i].choice_description
+                })
+            }
+            if (intque == nxtque) {
+                start = false;
+                choices.push({
+                    choiceChar: record[j].choice_char,
+                    choiceDescription: record[j].choice_description
+                })
+                j++;
+            } else if (intque != nxtque) {
+                start = true;
+                exam.push({
+                    question: intque,
+                    queChoices: choices
+                })
+                choices = [];
+                i = j;
+                j++;
+            }
+        }
+        exam.push({
+            question: intque,
+            queChoices: choices
+        })
+
         res.render("Exam", {
-            id: info[0].std_id,
-            username: info[0].std_name,
-            department: info[0].dept_description,
-            examname: req.body.id,
-            exam: record
+            studinfo: info[0].std_id,
+            courseid: req.body.id,
+            examname: req.body.name,
+            examid: record[0].exam_id,
+            exam: exam
         })
     })
 }
