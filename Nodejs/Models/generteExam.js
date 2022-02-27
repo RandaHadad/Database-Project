@@ -8,11 +8,11 @@ function generateexam(coursename, callback) {
         if (err) console.log(err + "did not connect to sql");
         //check the error
         var request = new sql.Request(connection);
-        request.query("exec GenerateExam @course_name='" + coursename + "', @tofcount= 3 , @mcqcount =7  ", function(err, recordset) {
-            if (err) console.log(err + "request error ");
-            // console.log(JSON.stringify(recordset.recordset) + "new proc")
-            callback(recordset.recordset);
-        })
+        request.query("exec GenerateExam @course_name='" + coursename + "', @tofcount= 3 , @mcqcount =7  ",
+            function(err, recordset) {
+                if (err) console.log(err + "request error ");
+                callback(recordset.recordset);
+            })
     })
 }
 

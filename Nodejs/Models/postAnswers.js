@@ -3,8 +3,6 @@ const config = require("./../dbConfig");
 
 
 function postanswers(ex_id, st_id, ansarr, callback) {
-    //@ex_id int ,@st_id int , @ans1 nchar(1), @ans2 nchar(1), @ans3 nchar(1), @ans4 nchar(1), @ans5 nchar(1),
-    //@ans6 nchar(1), @ans7 nchar(1), @ans8 nchar(1), @ans9 nchar(1), @ans10 nchar(1)
     var connection = new sql.connect(config, function(err) {
         if (err) console.log(err + "did not connect to sql");
         //check the error

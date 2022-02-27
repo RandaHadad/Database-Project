@@ -10,7 +10,6 @@ function getstudentinfo(userid, callback) {
         var request = new sql.Request(connection);
         request.query("exec StudentInfo @stuid='" + userid + "'", function(err, recordset) {
             if (err) console.log(err + "request error ");
-            // console.log(JSON.stringify(recordset.recordset) + "new proc")
             callback(recordset.recordset);
         })
     })
