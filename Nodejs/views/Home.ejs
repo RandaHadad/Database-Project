@@ -40,21 +40,24 @@
                         <th>NO.</th>
                         <th>Subject name </th>
                         <th>Exam Date</th>
+
                     </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>Database</td>
-                        <td>
-                            <button class="btn"> start exam</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>Java</td>
-                        <td>
-                            12/12/2020
-                        </td>
-                    </tr>
+                    <% for(var i=0; i < course.length; i++) { %>
+                        <tr>
+                            <td>
+                                <%= course[i].course_id  %>
+                            </td>
+                            <td>
+                                <%= course[i]. course_name %>
+                            </td>
+                            <td>
+                                <form method="post" action="/Home">
+                                    <input type="hidden" name="id" value="<%= course[i]. course_name %>">
+                                    <input type="submit" class=".btn" value="start exam">
+                                </form>
+                            </td>
+                        </tr>
+                        <% } %>
                 </table>
             </div>
         </div>

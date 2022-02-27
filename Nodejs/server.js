@@ -7,7 +7,7 @@ const session = require('express-session');
 var flash = require('connect-flash');
 const config = require("./dbConfig");
 const UsersRoute = require("./Routers/UsersRoute");
-const HomeRoute = require("./Controllers/HomeController");
+const HomeRoute = require("./Routers/HomeRouter");
 const StudentsRouter = require("./Routers/StudentsRouter");
 
 //opeining server
@@ -69,7 +69,7 @@ app.use('/user', UsersRoute);
 app.get('/', (req, res) => {
     res.render('login')
 });
-app.use('/Home', HomeRoute.stdHome)
+app.use('/Home', HomeRoute)
 
 // Get loggout page
 app.get('/loggout', (req, res, next) => {
