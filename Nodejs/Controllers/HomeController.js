@@ -27,7 +27,7 @@ exports.stdHome = function(req, res) {
 
 exports.examinfo = function(req, res) {
     generteExam.generateexam(req.body.name, function(record) {
-        console.log(JSON.stringify(record))
+
         let intque
         let i = 0;
         let j = 1

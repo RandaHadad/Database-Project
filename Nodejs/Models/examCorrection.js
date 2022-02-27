@@ -2,17 +2,17 @@ const sql = require('mssql');
 const config = require("./../dbConfig");
 
 
-function getstudentcourses(userid, callback) {
-
+function examcorrection(st_id, ex_id, callback) {
     var connection = new sql.connect(config, function(err) {
         if (err) console.log(err + "did not connect to sql");
         //check the error
         var request = new sql.Request(connection);
-        request.query("exec StudentInfoCourse @stuid='" + userid + "'", function(err, recordset) {
+        let query = `exec ExamCorrection @stID='${st_id}', @examID='${ex_id}' `
+        request.query(query, function(err, recordset) {
             if (err) console.log(err + "request error ");
             callback(recordset.recordset);
         })
     })
 }
 
-module.exports = { getstudentcourses: getstudentcourses };
+module.exports = { examcorrection: examcorrection };

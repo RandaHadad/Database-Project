@@ -1,3 +1,4 @@
+const examCorrection = require("../Models/examCorrection");
 const postAnswers = require("../Models/postAnswers");
 
 exports.start = async(request, response) => {
@@ -9,15 +10,16 @@ exports.sendans = async(request, response) => {
         allchoice.push(request.body[key])
     }
     allchoice.splice(0, 4)
-    console.log(request.body)
-    console.log(allchoice)
 
-    let data = [];
+
+
     postAnswers.postanswers(request.body.examid, request.body.stundentInfo, allchoice,
         function(recordsetss) {
-            data = recordsetss;
-            console.log(data)
-            response.render('Final')
+            examCorrection.examcorrection(request.body.stundentInfo, request.body.examid,
+                function(recordsets) {
+                    response.render('Final')
+                })
+
         }
     )
 

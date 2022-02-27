@@ -25,7 +25,6 @@ exports.getUsers = function(req, res) {
                 console.log(error + "form controller request ");
                 sql.close();
             }
-            console.log(JSON.stringify(allStudent));
             res.send(recordset)
         });
     });
@@ -42,8 +41,6 @@ exports.login = async(request, response, next) => {
         next(error);
     } else {
         const { username, password } = request.body;
-        console.log(request)
-        console.log(username, password)
         let x = allStudent.find((obj) => obj.user_name == username)
         if (x) {
             if (x.user_password == password) {

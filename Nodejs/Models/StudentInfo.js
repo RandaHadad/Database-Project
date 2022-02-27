@@ -10,7 +10,6 @@ function getStudent(callback) {
         var request = new sql.Request(connection);
         request.query("exec AllStudent ", function(err, recordset) {
             if (err) console.log(err + "request error ");
-            // console.log(JSON.stringify(recordset.recordset) + "from the model")
             callback(recordset.recordset);
         })
     })
