@@ -68,8 +68,8 @@ i:hover {
     padding: 5px;
 }
 
-.card-body>strong {
-    font-size: 1em;
+.card-body>div {
+    font: 1.2em bold;
     color: white;
 }
 
