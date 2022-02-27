@@ -39,13 +39,13 @@
                     <tr>
                         <th>NO.</th>
                         <th>Subject name </th>
-                        <th>Exam Date</th>
+                        <th>Exam </th>
 
                     </tr>
                     <% for(var i=0; i < course.length; i++) { %>
                         <tr>
                             <td>
-                                <%= course[i].course_id  %>
+                                <%= course[i].course_id %>
                             </td>
                             <td>
                                 <%= course[i]. course_name %>
@@ -54,7 +54,16 @@
                                 <form method="post" action="/home">
                                     <input type="hidden" name="id" value="<%= course[i]. course_id%>">
                                     <input type="hidden" name="name" value="<%= course[i]. course_name %>">
-                                    <input type="submit" class=".btn" value="start exam">
+
+                                    <% if(course[i]. grade){ %>
+                                        <p>
+                                            <%= course[i]. grade %>
+                                        </p>
+
+                                        <% } %>
+                                            <% if(!course[i]. grade){ %>
+                                                <input type="submit" class="btn" value="start exam">
+                                                <% } %>
                                 </form>
                             </td>
                         </tr>

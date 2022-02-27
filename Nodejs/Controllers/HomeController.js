@@ -16,7 +16,7 @@ exports.stdHome = function(req, res) {
                         username: info[0].std_name,
                         address: info[0].std_address,
                         department: info[0].dept_description,
-                        course: courses
+                        course: courses,
                     })
                 }
             })
