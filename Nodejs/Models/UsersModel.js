@@ -8,7 +8,7 @@ function getUsers(callback) {
         if (err) console.log(err + "did not connect to sql");
         //check the error
         var request = new sql.Request(connection);
-        request.query("exec GetUsers 'S' ", function(err, recordset) {
+        request.query("exec AllUsers", function(err, recordset) {
             if (err) console.log(err + "request error ");
             callback(recordset.recordset);
         })

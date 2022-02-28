@@ -71,7 +71,14 @@ app.use('/home', HomeRoute);
 app.get('/', (req, res) => {
     res.render('login')
 });
-
+app.get('/instructor', (req, res) => {
+    let user = req.session.user;
+    if (user) {
+        res.render('Instructor', {
+            username: user.user_name
+        })
+    }
+});
 app.get('/exam', (req, res) => {
     res.render('Exam')
 });
