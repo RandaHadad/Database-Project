@@ -25,7 +25,6 @@ exports.getUsers = function(req, res) {
                 console.log(error + "form controller request ");
                 sql.close();
             }
-            console.log(JSON.stringify(allStudent));
             res.send(recordset)
         });
     });
@@ -43,17 +42,27 @@ exports.login = async(request, response, next) => {
     } else {
         const { username, password } = request.body;
         let x = allStudent.find((obj) => obj.user_name == username)
-        for (let index = 0; index < allStudent.length; index++) {
-            if (allStudent[index].user_name == username && allStudent[index].user_password == password) {
+        if (x) {
+            if (x.user_password == password) {
                 console.log('you are loged in finally');
-                response.status(201).json({ message: "Logged" });
-                return;
+                request.session.user = x;
+                response.redirect('/Home');
             } else {
-                console.log("you entered some thing wrong ")
+                console.log("wrong password")
+                request.flash("msg", "Wrong Password");
+                response.locals.messages = request.flash();
+                response.render('Login')
             }
 
+
+        } else {
+            console.log("wrong username");
+            request.flash("msg", 'Wrong Username');
+            response.locals.messages = request.flash();
+            response.render('Login')
         }
-        console.log(x);
+
+
     }
 
 

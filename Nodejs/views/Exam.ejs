@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Examination</title>
+    <link rel="stylesheet" href="../CSS/Main.css">
+    <link rel="stylesheet" href="../CSS/Exam.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="info">
+            <p>
+                <%=examname%>
+            </p>
+        </div>
+        <div class="questions">
+
+            <form id="exam" method="post" action="/final">
+                <input type="hidden" name="courseId" value="<%=courseid%>">
+                <input type="hidden" name="courseName" value="<%=examname%>">
+                <input type="hidden" name="examid" value="<%=examid%>">
+                <input type="hidden" name="stundentInfo" value="<%=studinfo%>">
+                <% for(var i=0; i < exam.length; i++) { %>
+                    <p>
+                        <%= exam[i].question %>
+                    </p>
+                    <% for(var j=0; j < exam[i].queChoices.length; j++) { %>
+                        <input type="radio" id="<%= exam[i].queChoices[j].choiceDescription%>" name="<%= exam[i].question %>" value="<%= exam[i].queChoices[j].choiceChar%>" required>
+                        <label for="<%= exam[i].queChoices[j].choiceDescription%>"><%= exam[i].queChoices[j].choiceChar%> ) <%= exam[i].queChoices[j].choiceDescription%></label><br>
+                        <% } %>
+                            <br>
+                            <% } %>
+
+                                <input type="submit" class="btn">
+            </form>
+        </div>
+
+    </div>
+</body>
+
+</html>

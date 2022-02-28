@@ -1,0 +1,41 @@
+<html>
+
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="../CSS/Main.css">
+    <link rel="stylesheet" href="../CSS/login.css">
+
+</head>
+
+<body>
+    <div class="container">
+        <div id="title">
+            <i class="material-icons lock">lock</i> Login
+        </div>
+
+        <form id="login" method="post" action="/user">
+            <div class="input">
+                <input id="username" placeholder="Username" name="username" type="text" required class="validate">
+            </div>
+
+            <div class="clearfix"></div>
+
+            <div class="input">
+                <input id="password" placeholder="Password" name="password" type="password" required class="validate" autocomplete="off">
+            </div>
+
+            <input type="submit" class=".btn" value="Login">
+        </form>
+
+        <% if (locals.messages) { %>
+
+            <div class="alert alert-danger" style="color: tomato; padding: 10px ; font: 20px bold;">
+                <%= messages.msg %>;
+            </div>
+            <% } %>
+    </div>
+
+</body>
+
+</html>
