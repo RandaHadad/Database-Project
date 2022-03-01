@@ -7,6 +7,7 @@ const session = require('express-session');
 var flash = require('connect-flash');
 const config = require("./dbConfig");
 const UsersRoute = require("./Routers/UsersRoute");
+const InsRoute = require("./Controllers/InstructorController");
 const HomeRoute = require("./Routers/HomeRouter");
 const FinalRouter = require("./Routers/FinalRouter");
 
@@ -71,14 +72,7 @@ app.use('/home', HomeRoute);
 app.get('/', (req, res) => {
     res.render('login')
 });
-app.get('/instructor', (req, res) => {
-    let user = req.session.user;
-    if (user) {
-        res.render('Instructor', {
-            username: user.user_name
-        })
-    }
-});
+app.get('/instructor', InsRoute.route);
 app.get('/exam', (req, res) => {
     res.render('Exam')
 });
