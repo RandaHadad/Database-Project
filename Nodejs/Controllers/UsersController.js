@@ -3,14 +3,6 @@ const config = require("./../dbConfig");
 const allusers = require("./../Models/UsersModel")
 const { validationResult } = require("express-validator");
 
-//get all students from database 
-let allStudent = [];
-allusers.getUsers(
-    function(recordsetss) {
-        allStudent = recordsetss;
-    }
-)
-
 //get request 
 exports.getUsers = function(req, res) {
     let type = req.query.type;
@@ -34,6 +26,7 @@ exports.login = async(request, response, next) => {
 
     let errors = validationResult(request);
 
+
     if (!errors.isEmpty()) {
         let error = new Error();
         error.status = 422;
@@ -41,26 +34,37 @@ exports.login = async(request, response, next) => {
         next(error);
     } else {
         const { username, password } = request.body;
-        let x = allStudent.find((obj) => obj.user_name == username)
-        if (x) {
-            if (x.user_password == password) {
-                console.log('you are loged in finally');
-                request.session.user = x;
-                response.redirect('/Home');
-            } else {
-                console.log("wrong password")
-                request.flash("msg", "Wrong Password");
-                response.locals.messages = request.flash();
-                response.render('Login')
+        allusers.getUsers(
+            function(recordsetss) {
+                let x = recordsetss.find((obj) => obj.user_name == username)
+                if (x) {
+                    if (x.user_password == password) {
+                        console.log('you are loged in finally');
+                        request.session.user = x;
+                        if (x.user_type == 'S')
+                            response.redirect('/Home');
+                        else
+                            response.redirect('/instructor');
+                    } else {
+                        console.log("wrong password")
+                        request.flash("msg", "Wrong Password");
+                        response.locals.messages = request.flash();
+                        response.render('Login')
+                    }
+
+
+                } else {
+                    console.log("wrong username");
+                    request.flash("msg", 'Wrong Username');
+                    response.locals.messages = request.flash();
+                    response.render('Login')
+                }
             }
+        )
 
 
-        } else {
-            console.log("wrong username");
-            request.flash("msg", 'Wrong Username');
-            response.locals.messages = request.flash();
-            response.render('Login')
-        }
+
+
 
 
     }
