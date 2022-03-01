@@ -31,10 +31,36 @@
             </footer>
         </div>
         <div class="data">
-            <div class="extradata">
-
-            </div>
             <div class="Subject">
+                <% for(var i=0; i < students.length; i++) { %>
+                    <h2 style="color: darkblue; padding: 10px; ">
+                        <%=students[i].coursename%>
+                    </h2>
+                    <table>
+                        <tr>
+                            <th>ID</th>
+                            <th>Student Name</th>
+                            <th>Degree</th>
+                        </tr>
+                        <% for(var j=0; j < students[i].student.length; j++) { %>
+                            <tr>
+                                <td>
+                                    <%= students[i].student[j].stu_id %>
+                                </td>
+                                <td>
+                                    <%= students[i].student[j].std_name %>
+                                </td>
+                                <td>
+                                    <%= students[i].student[j].grade %>
+                                </td>
+
+                            </tr>
+
+                            <% } %>
+
+                    </table>
+
+                    <% } %>
 
             </div>
         </div>
