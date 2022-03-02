@@ -15,6 +15,7 @@ exports.route = function(req, res) {
                 }
 
                 if (user) {
+                    console.log(stddrgree)
                     res.render('Instructor', {
                         id: instructorinfo[0].ins_id,
                         username: user.user_name,
@@ -43,6 +44,7 @@ exports.route = function(req, res) {
                     }
 
                     if (user) {
+                        console.log(stddrgree.length)
                         res.render('Instructor', {
                             id: instructorinfo[0].ins_id,
                             username: user.user_name,
