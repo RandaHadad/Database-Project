@@ -32,35 +32,42 @@
         </div>
         <div class="data">
             <div class="Subject">
-                <% for(var i=0; i < students.length; i++) { %>
-                    <h2 style="color: darkblue; padding: 10px; ">
-                        <%=students[i].coursename%>
-                    </h2>
-                    <table>
-                        <tr>
-                            <th>ID</th>
-                            <th>Student Name</th>
-                            <th>Degree</th>
-                        </tr>
-                        <% for(var j=0; j < students[i].student.length; j++) { %>
-                            <tr>
-                                <td>
-                                    <%= students[i].student[j].stu_id %>
-                                </td>
-                                <td>
-                                    <%= students[i].student[j].std_name %>
-                                </td>
-                                <td>
-                                    <%= students[i].student[j].grade %>
-                                </td>
+                <% if(students){ %>
+                    <% for(var i=0; i < students.length; i++) { %>
+                        <h2 style="color: darkblue; padding: 10px; ">
+                            <%=students[i].coursename%>
+                        </h2>
+                        <table>
+                            <% if(students[i].student.length == 0) { %>
+                                <h3 style="color: gray; padding: 10px; text-align: center; ">No Student Tested Yet </H3>
+                                <% } %>
+                                    <% if(students[i].student.length > 0) { %>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Student Name</th>
+                                            <th>Degree</th>
+                                        </tr>
+                                        <% for(var j=0; j < students[i].student.length; j++) { %>
+                                            <tr>
+                                                <td>
+                                                    <%= students[i].student[j].stu_id %>
+                                                </td>
+                                                <td>
+                                                    <%= students[i].student[j].std_name %>
+                                                </td>
+                                                <td>
+                                                    <%= students[i].student[j].grade %>
+                                                </td>
 
-                            </tr>
+                                            </tr>
 
+                                            <% } %>
+                                                <% } %>
+
+                        </table>
+                        <% } %>
                             <% } %>
 
-                    </table>
-
-                    <% } %>
 
             </div>
         </div>

@@ -7,11 +7,15 @@ exports.route = function(req, res) {
         let stddrgree = [];
         if (instructorinfo.length == 1) {
             getStudentDegree.getDegree(instructorinfo[0].course_id, function(studentdeg) {
-                stddrgree.push({
-                    coursename: instructorinfo[0].course_name,
-                    student: studentdeg
-                })
+                if (studentdeg) {
+                    stddrgree.push({
+                        coursename: instructorinfo[0].course_name,
+                        student: studentdeg
+                    })
+                }
+
                 if (user) {
+                    console.log(stddrgree)
                     res.render('Instructor', {
                         id: instructorinfo[0].ins_id,
                         username: user.user_name,
@@ -26,17 +30,21 @@ exports.route = function(req, res) {
         } else {
             getStudentDegree.getDegree(instructorinfo[0].course_id, function(course1) {
                 getStudentDegree.getDegree(instructorinfo[1].course_id, function(course2) {
-                    stddrgree = [{
+                    if (course1) {
+                        stddrgree.push({
                             coursename: instructorinfo[0].course_name,
                             student: course1
-                        },
-                        {
+                        })
+                    }
+                    if (course2) {
+                        stddrgree.push({
                             coursename: instructorinfo[1].course_name,
                             student: course2
-                        }
-                    ]
+                        })
+                    }
 
                     if (user) {
+                        console.log(stddrgree.length)
                         res.render('Instructor', {
                             id: instructorinfo[0].ins_id,
                             username: user.user_name,
