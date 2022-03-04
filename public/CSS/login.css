@@ -1,0 +1,83 @@
+.container {
+    background-color: var(--background);
+    position: relative;
+    top: 10%;
+    margin: 20px auto;
+    width: 25%;
+    min-height: 70%;
+    height: auto;
+    border-radius: 0.35em;
+    box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+#title {
+    position: relative;
+    background-color: rgb(65, 75, 95);
+    width: 100%;
+    padding: 20px 0px;
+    border-radius: 0.35em;
+    font-size: 22px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.lock {
+    position: relative;
+    top: 2px;
+}
+
+.clearfix {
+    padding: top 10px;
+}
+
+span {
+    color: tomato;
+    display: none;
+    margin-top: 5px;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input,
+button {
+    background-color: var(--inputbg);
+    color: var(--white);
+    border: 1px solid #373b3d;
+    padding: 6px 20px;
+    margin: auto;
+    border-radius: 5px;
+    width: auto;
+    min-width: 80%;
+}
+
+button,
+input[type=submit] {
+    padding-top: 12px !important;
+    min-width: 50%;
+    font-size: 16px;
+    cursor:pointer
+}
+
+.input {
+    border-radius: 5px;
+    background-color: var(--inputbg);
+    padding: 8px 0px;
+    margin: 30px 25px;
+    width: auto;
+    min-width: 20%;
+}
+
+
+/* all animation : */
+
+button:hover {
+    color: grey;
+}

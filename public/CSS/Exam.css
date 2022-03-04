@@ -1,0 +1,40 @@
+.container {
+    background-color: var(--white);
+    width: auto;
+    height: fit-content;
+    min-height: 80vh;
+    border-radius: 5px;
+}
+
+i {
+    color: white;
+}
+
+.info {
+    margin-bottom: 30px;
+    padding-top: 30px;
+    height: 100px;
+    background-color: rgb(160, 155, 155);
+    border-radius: 5px;
+    text-align: center;
+}
+
+.questions {
+    display: flex;
+    justify-content: center;
+}
+
+form {
+    color: var(--inputbg);
+}
+
+.btn {
+    background-color: rgb(160, 155, 155);
+    color: white;
+}
+
+.btn:hover,
+button:hover {
+    background-color: #2b5876;
+    color: white;
+}

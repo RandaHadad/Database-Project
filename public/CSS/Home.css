@@ -1,0 +1,125 @@
+.container {
+    width: auto;
+    display: flex;
+    min-height: 85vh;
+}
+
+.extradata {
+    width: 100%;
+    height: 300px;
+    background-image: url('../images/exam.png');
+    margin-bottom: 20px;
+}
+
+i {
+    color: white;
+}
+
+i:hover {
+    color: tomato;
+}
+
+.data,
+.profile {
+    background-color: var(--white);
+    padding: 20px;
+    width: auto;
+    min-width: 20%;
+    border-radius: 5px;
+}
+
+.profile {
+    background-color: var(--background);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card-header {
+    text-align: center;
+}
+
+.data {
+    flex: 8;
+}
+
+.profile_img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    margin: 10px auto;
+    border: 10px solid #ccc;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: vertical;
+}
+
+.footer {
+    width: auto;
+    text-align: left;
+    align-content: end;
+    color: white;
+    font-size: 20px;
+}
+
+.mb-0 {
+    color: #d2d2d2;
+    padding: 5px;
+}
+
+.card-body>div {
+    font: 1.2em bold;
+    color: white;
+}
+
+.card-body {
+    padding: 30px;
+}
+
+table {
+    margin: auto;
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    border-radius: 5px;
+    min-width: 90%;
+    border-spacing: 0;
+    border: 0px;
+    width: 100%;
+}
+
+td,
+th {
+    padding: 8px;
+    text-align: center;
+    width: fit-content;
+}
+
+table th:first-child {
+    border-radius: 5px 0 0 5px;
+}
+
+table th:last-child {
+    border-radius: 0 5px 5px 0;
+}
+
+td {
+    color: var(--inputbg);
+}
+
+th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    background-color: var(--background);
+    color: var(--white);
+}
+
+tr:hover {
+    background-color: #ddd;
+}
+.btn:hover{
+    background-color: #414B5F;
+    border-radius: 5px;
+    color:#fff;
+    cursor: pointer;
+}

@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+* {
+    margin: 0px;
+    padding: 0px;
+    --background: rgb(65, 75, 95);
+    --inputbg: #373b3d;
+    --white: #F2F2F2;
+}
+
+body {
+    font-family: 'Raleway', sans-serif;
+    width: 100vw;
+    height: auto;
+    color: var(--white);
+    overflow-x: hidden;
+    background: linear-gradient(to right, #2b5876, #7f72ad);
+}
+
+.container {
+    height: 100%;
+    margin: 2rem;
+    padding: 20px;
+}
+
+.btn {
+    background-color: transparent;
+    border: 0px solid rgba(0, 0, 0, 0.1);
+    box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, system-ui, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.25;
+    margin-right: 2%;
+    min-height: 2rem;
+    padding: calc(.8rem - 1px) calc(.8rem - 1px);
+    position: relative;
+    transition: all 250ms;
+    width: fit-content;
+    justify-content: center;
+    align-items: center;
+}
+
+button:hover,
+button:focus,
+.btn:hover,
+.btn:focus {
+    border-color: rgba(0, 0, 0, 0.15);
+    box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+    color: rgba(0, 0, 0, 0.65);
+}
+
+button:hover,
+.btn:hover {
+    transform: translateY(-1px);
+}
+
+button:active,
+.btn:active {
+    background-color: #F0F0F1;
+    border-color: rgba(0, 0, 0, 0.15);
+    box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
+    color: rgba(0, 0, 0, 0.65);
+    transform: translateY(0);
+}
