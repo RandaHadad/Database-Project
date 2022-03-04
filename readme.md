@@ -133,9 +133,9 @@ const config = {
 
 Thanks for you all
 
-- Alaa Maher
+- [Alaa Maher](https://github.com/AalaaMaher)
 - [Amr Elauoty](https://github.com/amrelauoty)
-- Eslam Aboalela
+- [Eslam Aboalela](https://github.com/eslamaboalela)
 - [Mohamed Najeeb](https://github.com/MoNajeeb)
 - [Randa Hadad](https://github.com/RandaHadad)
 
