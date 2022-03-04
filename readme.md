@@ -121,8 +121,8 @@ const config = {
 
 2. Go to your browser and write _localhost:8080_ to run the project
 
-3. Here we can see the functionalities of the system with a video
-[![DB Project Details](./assets/images/login.png)](assets/video/DB_Project.mp4)
+<!-- 3. Here we can see the functionalities of the system with a video
+[![DB Project Details](./assets/images/login.png)](assets/video/DB_Project.mp4) -->
 
 <p align="right">(<a href="#examination-system">back to top</a>)</p>
 
