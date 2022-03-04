@@ -72,22 +72,22 @@ How to set the project locally?
 git clone git@github.com:RandaHadad/Database-Project
 ```
 
-1. Restore the database backup to your local machine and set a user for the database as a database owner to configure with the web application
+2. Restore the database backup to your local machine and set a user for the database as a database owner to configure with the web application
 ![restore Database](assets/images/Restore.png)
 
-1. Go to Nodejs Folder in the application
+3. Go to Nodejs Folder in the application
 
 ```sh
 cd Nodejs
 ```
 
-1. Install NPM packages
+4. Install NPM packages
 
 ```sh
 npm install
 ```
 
-1. Go to `dbConfig` js file to write your sql server database configurations
+5. Go to `dbConfig` js file to write your sql server database configurations
   
 ```js
 const config = {
@@ -119,9 +119,9 @@ const config = {
  npm start
 ```
 
-1. Go to your browser and write _localhost:8080_ to run the project
+2. Go to your browser and write _localhost:8080_ to run the project
 
-1. Here we can see the functionalities of the system with a video
+3. Here we can see the functionalities of the system with a video
 [![DB Project Details](./assets/images/login.png)](assets/video/DB_Project.mp4)
 
 <p align="right">(<a href="#examination-system">back to top</a>)</p>
