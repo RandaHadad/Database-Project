@@ -73,9 +73,10 @@ git clone git@github.com:RandaHadad/Database-Project
 ```
 
 2. Restore the database backup to your local machine and set a user for the database as a database owner to configure with the web application
+
 ![restore Database](assets/images/Restore.png)
 
-3. Go to Nodejs Folder in the application
+1. Go to Nodejs Folder in the application
 
 ```sh
 cd Nodejs
