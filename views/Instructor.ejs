@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../CSS/Main.css">
+    <link rel="stylesheet" href="CSS/Home.css">
+    <title>Home</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="profile">
+            <div class="card">
+                <div class="card-header">
+                    <img class=" profile_img " src="https://source.unsplash.com/600x300/?student" alt="student dp">
+                    <h3>
+                        <%= username%>
+                    </h3>
+                </div>
+                <div class="card-body">
+                    <div class="pr-1">Instructor ID: <b class="mb-0"> <%= id%> </b></div><br>
+                    <div class="pr-1">Address: <b class="mb-0"> <%= address%> </b></div><br>
+                    <div class="pr-1">Department: <b class="mb-0"> <%= department%> </b></div>
+                </div>
+            </div>
+            <footer class="footer">
+                <a href="/loggout">
+                    <i class='fa fa-sign-out'></i>
+                </a>
+            </footer>
+        </div>
+        <div class="data">
+            <div class="Subject">
+                <% if(students){ %>
+                    <% for(var i=0; i < students.length; i++) { %>
+                        <h2 style="color: darkblue; padding: 10px; ">
+                            <%=students[i].coursename%>
+                        </h2>
+                        <table>
+                            <% if(students[i].student.length == 0) { %>
+                                <h3 style="color: gray; padding: 10px; text-align: center; ">No Student Tested Yet </H3>
+                                <% } %>
+                                    <% if(students[i].student.length > 0) { %>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Student Name</th>
+                                            <th>Degree</th>
+                                        </tr>
+                                        <% for(var j=0; j < students[i].student.length; j++) { %>
+                                            <tr>
+                                                <td>
+                                                    <%= students[i].student[j].stu_id %>
+                                                </td>
+                                                <td>
+                                                    <%= students[i].student[j].std_name %>
+                                                </td>
+                                                <td>
+                                                    <%= students[i].student[j].grade %>
+                                                </td>
+
+                                            </tr>
+
+                                            <% } %>
+                                                <% } %>
+
+                        </table>
+                        <% } %>
+                            <% } %>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
