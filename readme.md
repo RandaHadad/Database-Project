@@ -24,7 +24,7 @@ A web application that generates exams for students and save their grades
 
 This is a Nodejs Project connected with a sql server database. It is made for sql server course as a project.
 
-During the pandamic every university or educational place has to have an online examination system for their students to make their exams in it.
+During the pandamic every university or educational place had and still has to have an online examination system for their students to make their exams in it.
 
 - Every student has an exam have to open the system and start his/her exam and the grade is calculated after the exam ends so the student can know the grade through his/her account in this course or subject.
 
